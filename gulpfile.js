@@ -34,10 +34,10 @@ gulp.task("build", function () {
 
 gulp.task("transfer", function () {
     return gulp.src([
-        "src/*.html",
-        "src/data",
-        "src/**/*.js",
-        ]).pipe(gulp.dest("dist"));
+        "./src/*.html",
+        "./src/data/**/*",
+        "./src/**/*.js",
+        ], {base: "src/"}).pipe(gulp.dest("dist"));
 });
 
 gulp.task("cleanup-dist", function () {
