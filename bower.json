@@ -1,0 +1,25 @@
+{
+  "name": "WCNG",
+  "authors": [
+    "CXuesong <forest93@163.com>"
+  ],
+  "description": "Warrior Cats Name Generator",
+  "main": "",
+  "keywords": [
+    "warriors",
+    "warrior",
+    "cats",
+    "erin",
+    "hunter"
+  ],
+  "license": "MIT",
+  "private": true,
+  "homepage": "http://github.com/CXuesong/WCNG",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
