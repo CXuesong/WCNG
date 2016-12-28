@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Brightheart - WCNG</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.41/system.js" integrity="sha256-XcUqNv8jyMENREIx9qqoRwOWTY5R+XS/WQ5nDXG1GsI="
+        crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js" integrity="sha256-PX9zWVaICUCeklczWaS9DLBb9uGN7pCkCT0Kyz1elRo="
+        crossorigin="anonymous"></script>
+    <script>
+        System.defaultJSExtensions = true;
+        System.import("script/brightheart");
+    </script>
+</head>
+
+<body>
+    <p>Name: <span data-bind="text: generatedName">NAME</span></p>
+    <button data-bind="click: generateNameCommand">Next</button>
+</body>
+
+</html>
