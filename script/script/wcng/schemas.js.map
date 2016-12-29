@@ -1,1 +1,0 @@
-{"version":3,"sources":["script/wcng/schemas.ts"],"names":[],"mappings":";;;;;;QAcA,CAAC","file":"schemas.js","sourcesContent":["/**\r\n * parts.json/clanCat\r\n */\r\nexport interface ClanCatNameParts {\r\n    prefixes: string[];\r\n    suffixes: string[];\r\n}\r\n\r\n/**\r\n * parts.json Root.\r\n */\r\nexport interface NameParts {\r\n    clanCat: ClanCatNameParts;\r\n}\r\n"]}
