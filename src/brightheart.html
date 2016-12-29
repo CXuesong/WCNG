@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Brightheart - WCNG</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.min.css"
         integrity="sha256-X/mlyZAafJ8j5e74pWh4+qNUD1zurCvLA6hODVobQX0=" crossorigin="anonymous" />
@@ -21,6 +22,7 @@
 </head>
 
 <body>
+    <!--=include template/header.html -->
     <div class="container">
         <div class="form-horizontal">
             <fieldset>
@@ -33,7 +35,7 @@
                     <label class="control-label" for="apprenticeName" data-bind="text: LC('apprentice_name')">APPRENTICE NAME</label>
                     <input class="form-control" id="apprenticeName" type="text" data-bind="value: generatedApprenticeName">
                 </div>
-                <div class="form-group label-floating">
+                <div class="form-group label-floating has-success">
                     <label class="control-label" for="warriorName" data-bind="text: LC('warrior_name')">WARRIOR NAME</label>
                     <input class="form-control" id="warriorName" type="text" data-bind="value: generatedWarriorName">
                 </div>
@@ -41,7 +43,7 @@
                     <label class="control-label" for="leaderName" data-bind="text: LC('leader_name')">LEADER NAME</label>
                     <input class="form-control" id="leaderName" type="text" data-bind="value: generatedLeaderName">
                 </div>
-                 <div class="form-group label-floating">
+                <div class="form-group label-floating">
                     <label class="control-label" for="ancientName" data-bind="text: LC('ancient_cat_name')">ANCIENT NAME</label>
                     <input class="form-control" id="ancientName" type="text" data-bind="value: generatedAncientCatName">
                 </div>

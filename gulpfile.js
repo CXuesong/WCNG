@@ -10,7 +10,8 @@ var gulp = require("gulp"),
     mocha = require("gulp-mocha"),
     istanbul = require("gulp-istanbul")
     del = require('del'),
-    jsonminify = require('gulp-jsonminify');
+    jsonminify = require('gulp-jsonminify'),
+    include = require("gulp-include");
 
 var SRC_PATH = "./src";
 var DIST_PATH = "./dist";
@@ -48,6 +49,7 @@ gulp.task("transfer-misc", function () {
         SRC_PATH + "/data/**/*",
         SRC_PATH + "/**/*.js",
         ], {base: SRC_PATH + "/"})
+        .pipe(include())
         .pipe(gulp.dest(DIST_PATH));
 });
 
