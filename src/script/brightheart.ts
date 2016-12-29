@@ -9,7 +9,7 @@ import * as Localization from "./wcng/localization";
  * brightheart.html main VM.
  */
 class BrightheartViewModel {
-    private lcProvider = new Localization.LocalizedResourceProvider(null);
+    private lcProvider = new Localization.LocalizedResourceProvider(navigator.language);
     private generatedName: Wcng.ClanCatName;
 
     public generatedKitName = ko.observable("Brightkit");

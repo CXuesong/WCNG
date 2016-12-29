@@ -51,7 +51,7 @@ System.register([], function (exports_1, context_1) {
                     for (var i = 0; i < NameGenerator.MaxAllowedRetries; i++) {
                         var pi = Math.floor(Math.random() * this.prefixes.length);
                         var si = Math.floor(Math.random() * this.suffixes.length);
-                        var p = this.prefixes[pi], s = this.suffixes[si];
+                        var p = this.prefixes[pi].toLowerCase(), s = this.suffixes[si].toLowerCase();
                         if (p == s)
                             continue;
                         return new ClanCatName(p, s);

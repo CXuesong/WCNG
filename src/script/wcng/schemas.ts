@@ -14,10 +14,11 @@ export interface NameParts {
 }
 
 /**
- * localization/text.json Root.
+ * localization/catalog.json Root.
  */
-export interface LocalizedTextDict {
-    name_generator: string;
-    warrior_name: string;
-    next_name: string;
+export interface LocalizationCatalog {
+    /**
+     * Known languages.
+     */
+    languages: string[];
 }

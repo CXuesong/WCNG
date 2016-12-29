@@ -6,7 +6,7 @@ function titleCase(str: string){
  * Represents a series of names used by a clan cat.
  */
 export class ClanCatName {
-    
+
     constructor(public prefix: string, public suffix: string)
     {
         console.assert(prefix == prefix.toLowerCase());
@@ -55,7 +55,7 @@ export class NameGenerator {
         {
             let pi = Math.floor(Math.random()*this.prefixes.length);
             let si = Math.floor(Math.random()*this.suffixes.length);
-            let p = this.prefixes[pi], s = this.suffixes[si];
+            let p = this.prefixes[pi].toLowerCase(), s = this.suffixes[si].toLowerCase();
             // Sanity check
             // Prefix cannot be the same as suffix
             if (p == s) continue;

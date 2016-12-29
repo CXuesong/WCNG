@@ -19,7 +19,7 @@ System.register(["./wcng/wcng", "./wcng/localization"], function (exports_1, con
             BrightheartViewModel = (function () {
                 function BrightheartViewModel() {
                     var _this = this;
-                    this.lcProvider = new Localization.LocalizedResourceProvider(null);
+                    this.lcProvider = new Localization.LocalizedResourceProvider(navigator.language);
                     this.generatedKitName = ko.observable("Brightkit");
                     this.generatedApprenticeName = ko.observable("Brightpaw");
                     this.generatedWarriorName = ko.observable("Brightheart");
