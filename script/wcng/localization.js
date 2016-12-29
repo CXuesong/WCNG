@@ -1,29 +1,48 @@
 System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
+    function fallbackLanguageTag(tag) {
+        var index = tag.lastIndexOf("-");
+        if (index <= 0)
+            return "";
+        return tag.substr(0, index);
+    }
     var LocalizedResourceProvider;
     return {
         setters: [],
         execute: function () {
             LocalizedResourceProvider = (function () {
                 function LocalizedResourceProvider(locale) {
+                    var _this = this;
                     this.loadedDicts = {};
                     this.observables = {};
-                    this.currentLocale(locale);
+                    $.getJSON(LocalizedResourceProvider.LocalizedResourcePath + "/catalog.json", function (data, textStatus, jqXHR) {
+                        _this._catalog = data;
+                        _this.setCurrentLocale(locale);
+                    });
                 }
-                LocalizedResourceProvider.prototype.currentLocale = function (value) {
+                LocalizedResourceProvider.prototype.getCurrentLocale = function () {
+                    return this._currentLocale;
+                };
+                LocalizedResourceProvider.prototype.setCurrentLocale = function (value) {
                     var _this = this;
-                    if (typeof value == "undefined")
-                        return this._currentLocale;
-                    if (!value)
-                        value = "";
+                    console.assert(!!this._catalog);
+                    value = (value || "").toLowerCase();
+                    while (value && this._catalog.languages.indexOf(value) < 0) {
+                        value = fallbackLanguageTag(value);
+                    }
+                    if (!value) {
+                        console.assert(this._catalog.languages.indexOf(LocalizedResourceProvider.FallbackLanguage) >= 0);
+                        value = LocalizedResourceProvider.FallbackLanguage;
+                    }
                     this._currentLocale = value;
                     if (!(value in this.loadedDicts)) {
                         this.loadedDicts[value] = null;
                         this.fetchResourceDictAsync(value, (function (dict) {
                             console.debug("Loaded resource dictionary for ", value);
                             _this.loadedDicts[value] = dict;
-                            _this.refreshObservables();
+                            if (_this._currentLocale == value)
+                                _this.refreshObservables();
                         }));
                     }
                 };
@@ -36,26 +55,25 @@ System.register([], function (exports_1, context_1) {
                     if (v)
                         return v;
                     var lv = this.getString(key);
-                    v = ko.observable(lv ? lv : "[" + key + "]");
+                    v = ko.observable(lv || "[" + key + "]");
                     this.observables[key] = v;
                     return v;
                 };
                 LocalizedResourceProvider.prototype.refreshObservables = function () {
                     for (var key in this.observables) {
                         var lv = this.getString(key);
-                        console.debug(key, lv);
                         if (lv)
                             this.observables[key](lv);
                     }
                 };
                 LocalizedResourceProvider.prototype.fetchResourceDictAsync = function (locale, callback) {
-                    var path = "data/localization";
-                    if (locale)
-                        path += "/" + locale;
-                    $.getJSON(path + "/text.json", function (data, textStatus, jqXHR) { return callback(data); });
+                    console.assert(!!locale);
+                    $.getJSON(LocalizedResourceProvider.LocalizedResourcePath + "/" + locale + "/text.json", function (data, textStatus, jqXHR) { return callback(data); });
                 };
                 return LocalizedResourceProvider;
             }());
+            LocalizedResourceProvider.LocalizedResourcePath = "data/localization";
+            LocalizedResourceProvider.FallbackLanguage = "en";
             exports_1("LocalizedResourceProvider", LocalizedResourceProvider);
         }
     };
