@@ -1,3 +1,43 @@
+function titleCase(str: string){
+    if (!str) return str;
+    return str[0].toUpperCase() + str.substring(1).toLowerCase();
+}
+/**
+ * Represents a series of names used by a clan cat.
+ */
+export class ClanCatName {
+    
+    constructor(public prefix: string, public suffix: string)
+    {
+        console.assert(prefix == prefix.toLowerCase());
+        console.assert(suffix == suffix.toLowerCase());
+    }
+
+    public getKitName() {
+        return titleCase(this.prefix + "kit");
+    }
+
+    public getApprenticeName() {
+        return titleCase(this.prefix + "paw");
+    }
+
+    public getWarriorName() {
+        return titleCase(this.prefix + this.suffix);
+    }
+
+    public getLeaderName() {
+        return titleCase(this.prefix + "star");
+    }
+
+    public getAncientName() {
+        return titleCase(this.prefix) + " " + titleCase(this.suffix);
+    }
+
+    public toString() {
+        return this.getWarriorName();
+    }
+}
+
 export class NameGenerator {
 
     public static readonly MaxAllowedRetries = 10;
@@ -10,7 +50,7 @@ export class NameGenerator {
     /**
      * Generates the next warrior name.
      */
-    public nextName(): string {
+    public nextName(): ClanCatName {
         for (let i = 0; i < NameGenerator.MaxAllowedRetries; i++)
         {
             let pi = Math.floor(Math.random()*this.prefixes.length);
@@ -19,8 +59,7 @@ export class NameGenerator {
             // Sanity check
             // Prefix cannot be the same as suffix
             if (p == s) continue;
-            let builder = p + s;
-            return builder[0].toUpperCase() + builder.substring(1).toLowerCase();
+            return new ClanCatName(p, s);
         }
     }
 }

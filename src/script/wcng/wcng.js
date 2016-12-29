@@ -1,10 +1,43 @@
 System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var NameGenerator;
+    function titleCase(str) {
+        if (!str)
+            return str;
+        return str[0].toUpperCase() + str.substring(1).toLowerCase();
+    }
+    var ClanCatName, NameGenerator;
     return {
         setters: [],
         execute: function () {
+            ClanCatName = (function () {
+                function ClanCatName(prefix, suffix) {
+                    this.prefix = prefix;
+                    this.suffix = suffix;
+                    console.assert(prefix == prefix.toLowerCase());
+                    console.assert(suffix == suffix.toLowerCase());
+                }
+                ClanCatName.prototype.getKitName = function () {
+                    return titleCase(this.prefix + "kit");
+                };
+                ClanCatName.prototype.getApprenticeName = function () {
+                    return titleCase(this.prefix + "paw");
+                };
+                ClanCatName.prototype.getWarriorName = function () {
+                    return titleCase(this.prefix + this.suffix);
+                };
+                ClanCatName.prototype.getLeaderName = function () {
+                    return titleCase(this.prefix + "star");
+                };
+                ClanCatName.prototype.getAncientName = function () {
+                    return titleCase(this.prefix) + " " + titleCase(this.suffix);
+                };
+                ClanCatName.prototype.toString = function () {
+                    return this.getWarriorName();
+                };
+                return ClanCatName;
+            }());
+            exports_1("ClanCatName", ClanCatName);
             NameGenerator = (function () {
                 function NameGenerator(prefixes, suffixes) {
                     this.prefixes = prefixes;
@@ -21,8 +54,7 @@ System.register([], function (exports_1, context_1) {
                         var p = this.prefixes[pi], s = this.suffixes[si];
                         if (p == s)
                             continue;
-                        var builder = p + s;
-                        return builder[0].toUpperCase() + builder.substring(1).toLowerCase();
+                        return new ClanCatName(p, s);
                     }
                 };
                 return NameGenerator;

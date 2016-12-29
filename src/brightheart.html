@@ -26,8 +26,24 @@
             <fieldset>
                 <legend data-bind="text: LC('name_generator')">NAME GENERATOR</legend>
                 <div class="form-group label-floating">
+                    <label class="control-label" for="kitName" data-bind="text: LC('kit_name')">KIT NAME</label>
+                    <input class="form-control" id="kitName" type="text" data-bind="value: generatedKitName">
+                </div>
+                <div class="form-group label-floating">
+                    <label class="control-label" for="apprenticeName" data-bind="text: LC('apprentice_name')">APPRENTICE NAME</label>
+                    <input class="form-control" id="apprenticeName" type="text" data-bind="value: generatedApprenticeName">
+                </div>
+                <div class="form-group label-floating">
                     <label class="control-label" for="warriorName" data-bind="text: LC('warrior_name')">WARRIOR NAME</label>
-                    <input class="form-control" id="warriorName" type="text" data-bind="value: generatedName">
+                    <input class="form-control" id="warriorName" type="text" data-bind="value: generatedWarriorName">
+                </div>
+                <div class="form-group label-floating">
+                    <label class="control-label" for="leaderName" data-bind="text: LC('leader_name')">LEADER NAME</label>
+                    <input class="form-control" id="leaderName" type="text" data-bind="value: generatedLeaderName">
+                </div>
+                 <div class="form-group label-floating">
+                    <label class="control-label" for="ancientName" data-bind="text: LC('ancient_cat_name')">ANCIENT NAME</label>
+                    <input class="form-control" id="ancientName" type="text" data-bind="value: generatedAncientCatName">
                 </div>
                 <div class="form-group">
                     <a class="btn btn-primary btn-raised btn-lg btn-block" data-bind="text: LC('next_name'), click: generateNameCommand;">NEXT NAME</a>
@@ -36,4 +52,5 @@
         </div>
     </div>
 </body>
+
 </html>

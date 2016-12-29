@@ -1,5 +1,9 @@
 {
     "name_generator": "Name Generator",
+    "next_name": "Next Name",
+    "kit_name": "Kit Name",
+    "apprentice_name": "Apprentice Name",
     "warrior_name": "Warrior Name",
-    "next_name": "Next Name"
+    "leader_name": "Leader Name",
+    "ancient_cat_name": "Ancient Name"
 }
