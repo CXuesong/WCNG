@@ -4,11 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Brightheart - WCNG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.min.css"
+        integrity="sha256-X/mlyZAafJ8j5e74pWh4+qNUD1zurCvLA6hODVobQX0=" crossorigin="anonymous" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.41/system.js" integrity="sha256-XcUqNv8jyMENREIx9qqoRwOWTY5R+XS/WQ5nDXG1GsI="
         crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.1/knockout-min.js" integrity="sha256-PX9zWVaICUCeklczWaS9DLBb9uGN7pCkCT0Kyz1elRo="
+        crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.umd.min.js" integrity="sha256-GYcdwXot2kSaBb8kr9o8zDKYBwQ1PCkugjcCYFQS+IA="
         crossorigin="anonymous"></script>
     <script>
         System.defaultJSExtensions = true;
@@ -17,8 +21,19 @@
 </head>
 
 <body>
-    <p>Name: <span data-bind="text: generatedName">NAME</span></p>
-    <button data-bind="click: generateNameCommand">Next</button>
+    <div class="container">
+        <div class="form-horizontal">
+            <fieldset>
+                <legend data-bind="text: LC('name_generator')">NAME GENERATOR</legend>
+                <div class="form-group label-floating">
+                    <label class="control-label" for="warriorName" data-bind="text: LC('warrior_name')">WARRIOR NAME</label>
+                    <input class="form-control" id="warriorName" type="text" data-bind="value: generatedName">
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-primary btn-raised btn-lg btn-block" data-bind="text: LC('next_name'), click: generateNameCommand;">NEXT NAME</a>
+                </div>
+            </fieldset>
+        </div>
+    </div>
 </body>
-
 </html>

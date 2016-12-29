@@ -15,13 +15,19 @@ System.register([], function (exports_1, context_1) {
                         throw "suffixes cannot be empty.";
                 }
                 NameGenerator.prototype.nextName = function () {
-                    var pi = Math.floor(Math.random() * this.prefixes.length);
-                    var si = Math.floor(Math.random() * this.suffixes.length);
-                    var builder = this.prefixes[pi] + this.suffixes[si];
-                    return builder[0].toUpperCase() + builder.substring(1).toLowerCase();
+                    for (var i = 0; i < NameGenerator.MaxAllowedRetries; i++) {
+                        var pi = Math.floor(Math.random() * this.prefixes.length);
+                        var si = Math.floor(Math.random() * this.suffixes.length);
+                        var p = this.prefixes[pi], s = this.suffixes[si];
+                        if (p == s)
+                            continue;
+                        var builder = p + s;
+                        return builder[0].toUpperCase() + builder.substring(1).toLowerCase();
+                    }
                 };
                 return NameGenerator;
             }());
+            NameGenerator.MaxAllowedRetries = 10;
             exports_1("NameGenerator", NameGenerator);
         }
     };
