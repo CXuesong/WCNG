@@ -17,47 +17,78 @@
         crossorigin="anonymous"></script>
     <script>
         System.defaultJSExtensions = true;
-        System.import("script/brightheart");
+        var brightheart = System.import("script/brightheart");
     </script>
 </head>
 
 <body>
-    <div class="navbar navbar-default">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">WCNG</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
+    <ul class="nav nav-tabs bg-primary">
+        <li class="nav-item">
+            <a class="nav-link" href="./">WCNG</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Clan cats</a>
+        </li>
+        <li class="nav-item">
             <li><a href="https://github.com/CXuesong/WCNG">On Github</a></li>
-        </ul>
-    </div>
+        </li>
+    </ul>
     <div class="container">
-        <div class="form-horizontal">
-            <fieldset>
-                <legend data-bind="text: LC('clan_cat_name_generator')">NAME GENERATOR</legend>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="kitName" data-bind="text: LC('kit_name')">KIT NAME</label>
-                    <input class="form-control" id="kitName" type="text" data-bind="value: generatedKitName">
+        <div class="row">
+            <div class="card card-block col-md-6">
+                <h1 data-bind="text: LC('clan_cat_name_generator')">NAME GENERATOR</h1>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="list-group">
+                            <a class="list-group-item">
+                                <div class="bmd-list-group-col">
+                                    <p class="list-group-item-heading" data-bind="text: LC('kit_name')">KIT NAME</p>
+                                    <p class="list-group-item-text" data-bind="text: generatedKitName">kit</p>
+                                </div>
+                            </a>
+                            <a class="list-group-item">
+                                <div class="bmd-list-group-col">
+                                    <p class="list-group-item-heading" data-bind="text: LC('apprentice_name')">APPRENTICE NAME</p>
+                                    <p class="list-group-item-text" data-bind="text: generatedApprenticeName">apprentice</p>
+                                </div>
+                            </a>
+                            <a class="list-group-item text-primary">
+                                <div class="bmd-list-group-col">
+                                    <p class="list-group-item-heading" data-bind="text: LC('warrior_name')">WARRIOR NAME</p>
+                                    <p class="list-group-item-text" data-bind="text: generatedWarriorName">warrior</p>
+                                </div>
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="list-group">
+                            <a class="list-group-item">
+                                <div class="bmd-list-group-col">
+                                    <p class="list-group-item-heading" data-bind="text: LC('leader_name')">LEADER NAME</p>
+                                    <p class="list-group-item-text" data-bind="text: generatedLeaderName">leader</p>
+                                </div>
+                            </a>
+                            <a class="list-group-item">
+                                <div class="bmd-list-group-col">
+                                    <p class="list-group-item-heading" data-bind="text: LC('ancient_cat_name')">ANCIENT NAME</p>
+                                    <p class="list-group-item-text" data-bind="text: generatedAncientCatName">ancient</p>
+                                </div>
+                            </a>
+                        </ul>
+                    </div>
                 </div>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="apprenticeName" data-bind="text: LC('apprentice_name')">APPRENTICE NAME</label>
-                    <input class="form-control" id="apprenticeName" type="text" data-bind="value: generatedApprenticeName">
+                <button class="btn btn-primary btn-raised btn-lg btn-block" data-bind="text: LC('next_name'), click: generateNameCommand;">NEXT NAME</button>
+            </div>
+            <div class="card card-block col-md-6">
+                <h1 data-bind="text: LC('about_title')">Loading…</h1>
+                <div class="container" data-bind="html: LC('about_content')">
+                    If you get stuck here, please refresh the page.
+                    <hr>
+                    <!--[if lt IE 9]>
+                    You're using an outdated IE. Consider update it to IE 9 or higher.
+                    <![endif]-->
                 </div>
-                <div class="form-group label-floating has-success">
-                    <label class="control-label" for="warriorName" data-bind="text: LC('warrior_name')">WARRIOR NAME</label>
-                    <input class="form-control" id="warriorName" type="text" data-bind="value: generatedWarriorName">
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="leaderName" data-bind="text: LC('leader_name')">LEADER NAME</label>
-                    <input class="form-control" id="leaderName" type="text" data-bind="value: generatedLeaderName">
-                </div>
-                <div class="form-group label-floating">
-                    <label class="control-label" for="ancientName" data-bind="text: LC('ancient_cat_name')">ANCIENT NAME</label>
-                    <input class="form-control" id="ancientName" type="text" data-bind="value: generatedAncientCatName">
-                </div>
-                <div class="form-group">
-                    <a class="btn btn-primary btn-raised btn-lg btn-block" data-bind="text: LC('next_name'), click: generateNameCommand;">NEXT NAME</a>
-                </div>
-            </fieldset>
+            </div>
         </div>
     </div>
 </body>
