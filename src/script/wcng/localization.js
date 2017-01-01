@@ -48,7 +48,14 @@ System.register([], function (exports_1, context_1) {
                 };
                 LocalizedResourceProvider.prototype.getString = function (key) {
                     var dict = this.loadedDicts[this._currentLocale];
-                    return dict ? dict[key] : null;
+                    if (!dict)
+                        return null;
+                    var value = dict[key];
+                    if (!value)
+                        return undefined;
+                    if (value instanceof Array)
+                        value = value.join("");
+                    return value;
                 };
                 LocalizedResourceProvider.prototype.getObservableString = function (key) {
                     var v = this.observables[key];

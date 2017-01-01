@@ -1,0 +1,17 @@
+{
+    "clan_cat_name_generator": "部族貓名生成器",
+    "next_name": "下一個",
+    "kit_name": "幼崽名",
+    "apprentice_name": "見習生名",
+    "warrior_name": "戰士名",
+    "leader_name": "族長名",
+    "ancient_cat_name": "遠古貓名",
+    "about_title": "關於WCNG",
+    "about_content": [
+        "<p>這是Cedarsong的貓戰士名字生成器（<strong>W</strong>arrior <strong>C</strong>ats <strong>N</strong>ame <strong>G</strong>enerator）。",
+        "此生成器使用由<a href=\"http://warriors.wikia.com\">Warriors Wiki</a>收集而來的戰士名解析後得到的字首和字尾。",
+        "<p>有關更多資訊，請參閱<a href=\"https://github.com/CXuesong/WCNG\">GitHub上的項目頁面</a>。 ",
+        "如果你能順手給我點一顆星（Star），那真是再好不過啦！</p>",
+        "<p><a href=\"http://warriorcats.com\">《貓戰士》</a>是一部由艾琳·杭特撰寫的以貓為主角的小說系列。</p>"
+    ]
+}

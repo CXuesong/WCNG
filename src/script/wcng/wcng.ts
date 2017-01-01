@@ -22,7 +22,9 @@ export class ClanCatName {
     }
 
     public getWarriorName() {
-        return titleCase(this.prefix + this.suffix);
+        // E.g. one-eye
+        let splitter = this.prefix[this.prefix.length - 1] == this.suffix[0] ? "-" : "";
+        return titleCase(this.prefix + splitter + this.suffix);
     }
 
     public getLeaderName() {

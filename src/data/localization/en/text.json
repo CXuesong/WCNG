@@ -5,5 +5,14 @@
     "apprentice_name": "Apprentice Name",
     "warrior_name": "Warrior Name",
     "leader_name": "Leader Name",
-    "ancient_cat_name": "Ancient Name"
+    "ancient_cat_name": "Ancient Name",
+    "about_title": "About WCNG",
+    "about_content": [
+        "<p>This is Cedarsong's <strong>W</strong>arrior <strong>C</strong>ats <strong>N</strong>ame <strong>G</strong>enerator. ",
+        "The prefixes and suffixes are parsed from the names I've <a href=\"https://github.com/CXuesong/Cedarsong/blob/master/WcngStripper/names.txt\">collected</a> ",
+        "from <a href=\"http://warriors.wikia.com\">Warriors Wiki</a>.</p>",
+        "<p>As for more information, please visit <a href=\"https://github.com/CXuesong/WCNG\">the GitHub project page</a>. ",
+        "I would also appreciate it if you star this little project!</p>",
+        "<p><a href=\"http://warriorcats.com\"><em>Warriors</em></a> is a cat-based fiction series written by Erin Hunter</a>.</p>"
+    ]
 }

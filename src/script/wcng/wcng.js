@@ -24,7 +24,8 @@ System.register([], function (exports_1, context_1) {
                     return titleCase(this.prefix + "paw");
                 };
                 ClanCatName.prototype.getWarriorName = function () {
-                    return titleCase(this.prefix + this.suffix);
+                    var splitter = this.prefix[this.prefix.length - 1] == this.suffix[0] ? "-" : "";
+                    return titleCase(this.prefix + splitter + this.suffix);
                 };
                 ClanCatName.prototype.getLeaderName = function () {
                     return titleCase(this.prefix + "star");

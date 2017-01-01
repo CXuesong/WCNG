@@ -2,7 +2,7 @@
 
 import * as Schemas from "./schemas"
 
-type TextDict = { [key: string]: string };
+type TextDict = { [key: string]: string | Array<string> };
 
 function fallbackLanguageTag(tag: string) {
     let index = tag.lastIndexOf("-");
@@ -55,8 +55,12 @@ export class LocalizedResourceProvider {
     }
 
     public getString(key: string) {
-        var dict = this.loadedDicts[this._currentLocale];
-        return dict ? dict[key] : null;
+        let dict = this.loadedDicts[this._currentLocale];
+        if (!dict) return null;
+        let value = dict[key];
+        if (!value) return undefined;
+        if (value instanceof Array) value = value.join("");
+        return value;
     }
 
     public getObservableString(key: string) {
